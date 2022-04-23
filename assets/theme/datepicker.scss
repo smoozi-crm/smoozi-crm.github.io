@@ -1,0 +1,274 @@
+.p-datepicker {
+  padding: var(--inline-spacing);
+  background: var(--primary-color-inverted);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+
+  &:not(.p-datepicker-inline) {
+    background: var(--primary-color-inverted);
+    border: 0 none;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+    .p-datepicker-header {
+      background: var(--primary-color-inverted);
+    }
+  }
+
+  .p-datepicker-header {
+    padding: var(--inline-spacing);
+    color: var(--text-color);
+    background: var(--primary-color-inverted);
+    font-weight: 600;
+    margin: 0;
+    border-bottom: 1px solid var(--lines-color);
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+
+    .p-datepicker-title {
+      line-height: 2rem;
+
+      .p-datepicker-month {
+        margin-right: var(--inline-spacing);
+      }
+      .p-datepicker-year,
+      .p-datepicker-month {
+        color: var(--text-color);
+        transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+        font-weight: 600;
+        padding: var(--inline-spacing);
+        &:enabled:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+    .p-datepicker-prev,
+    .p-datepicker-next {
+      width: 2rem;
+      height: 2rem;
+      color: var(--text-color-secondary);
+      border: 0 none;
+      background: transparent;
+      border-radius: 50%;
+      transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+      &:enabled:hover {
+        color: var(--text-color-header);
+        border-color: transparent;
+        background: var(--surface-c);
+      }
+      &:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: var(--focus-ring);
+      }
+    }
+  }
+
+  table {
+    font-size: 1rem;
+    margin: var(--inline-spacing) 0;
+
+    th {
+      padding: var(--inline-spacing);
+
+      & > span {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    td {
+      padding: var(--inline-spacing);
+
+      & > span {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        transition: box-shadow 0.2s;
+        border: 1px solid transparent;
+
+        &.p-highlight {
+          color: var(--primary-color-active);
+          background: var(--color-background);
+        }
+
+        &:focus {
+          outline: 0 none;
+          outline-offset: 0;
+          box-shadow: var(--focus-ring);
+        }
+      }
+
+      &.p-datepicker-today {
+        & > span {
+          background: var(--border-color);
+          color: var(--text-color);
+          border-color: transparent;
+
+          &.p-highlight {
+            color: var(--primary-color-active);
+            background: var(--color-background);
+          }
+        }
+      }
+    }
+  }
+
+  .p-datepicker-buttonbar {
+    padding: 1rem 0;
+    border-top: 1px solid var(--lines-color);
+
+    .p-button {
+      width: auto;
+    }
+  }
+
+  .p-timepicker {
+    border-top: 1px solid var(--lines-color);
+    padding: var(--inline-spacing);
+
+    button {
+      width: 2rem;
+      height: 2rem;
+      color: var(--text-color-secondary);
+      border: 0 none;
+      background: transparent;
+      border-radius: 50%;
+      transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+
+      &:enabled {
+        &:hover {
+          color: var(--text-color-header);
+          border-color: transparent;
+          background: var(--surface-c);
+        }
+      }
+
+      &:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: var(--focus-ring);
+      }
+
+      &:last-child {
+        margin-top: 0.2em;
+      }
+    }
+
+    span {
+      font-size: var(--content-padding);
+    }
+
+    & > div {
+      padding: 0 var(--inline-spacing);
+    }
+  }
+
+  &.p-datepicker-timeonly {
+    .p-timepicker {
+      border-top: 0 none;
+    }
+  }
+
+  .p-monthpicker {
+    margin: var(--inline-spacing) 0;
+
+    .p-monthpicker-month {
+      padding: var(--inline-spacing);
+      transition: box-shadow 0.2s;
+      border-radius: var(--border-radius);
+
+      &.p-highlight {
+        color: var(--primary-color-active);
+        background: var(--color-background);
+      }
+    }
+  }
+
+  .p-yearpicker {
+    margin: var(--inline-spacing) 0;
+
+    .p-yearpicker-year {
+      padding: var(--inline-spacing);
+      transition: box-shadow 0.2s;
+      border-radius: var(--border-radius);
+
+      &.p-highlight {
+        color: var(--primary-color-active);
+        background: var(--color-background);
+      }
+    }
+  }
+
+  &.p-datepicker-multiple-month {
+    .p-datepicker-group {
+      border-left: 1px solid var(--lines-color);
+      padding-right: var(--inline-spacing);
+      padding-left: var(--inline-spacing);
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &:first-child {
+        padding-left: 0;
+        border-left: 0 none;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &:not(.p-disabled) {
+    table {
+      td {
+        span {
+          &:not(.p-highlight):not(.p-disabled):hover {
+            background: var(--surface-c);
+          }
+
+          &:not(.p-highlight):not(.p-disabled):focus {
+            outline: 0 none;
+            outline-offset: 0;
+            box-shadow: var(--focus-ring);
+          }
+        }
+      }
+    }
+
+    .p-monthpicker {
+      .p-monthpicker-month {
+        &:not(.p-disabled):not(.p-highlight):hover {
+          background: var(--surface-c);
+        }
+
+        &:not(.p-disabled):focus {
+          outline: 0 none;
+          outline-offset: 0;
+          box-shadow: var(--focus-ring);
+        }
+      }
+    }
+
+    .p-yearpicker {
+      .p-yearpicker-year {
+        &:not(.p-disabled):not(.p-highlight):hover {
+          background: var(--surface-c);
+        }
+
+        &:not(.p-disabled):focus {
+          outline: 0 none;
+          outline-offset: 0;
+          box-shadow: var(--focus-ring);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .p-datepicker table th, .p-datepicker table td {
+    padding: 0;
+  }
+}
+
